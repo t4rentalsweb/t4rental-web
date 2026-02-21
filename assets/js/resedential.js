@@ -134,6 +134,7 @@ function initElements(){
    descEl = document.getElementById("property-description");
    availabilityBadge = document.getElementById("availability-badge");
    detailsEl = document.getElementById("property-details-modal");
+   thumbnailStrip = document.getElementById("thumbnail-strip");
 }
 
 let currentIndex = 0;
@@ -150,15 +151,37 @@ function openPropertyModal(property) {
   detailsEl && (detailsEl.textContent = property.DETAILS || '');
   const images = Array.isArray(property.IMAGENAMES) ? property.IMAGENAMES : [];
   currentIndex = 0;
+  
+  renderThumbnails(images);
   updateImage(images);
 
   modal.style.display = "block";
 
 
   // Start slideshow (change every 3 seconds)
-  startSlideshow(images);
+  // startSlideshow(images);
   document.getElementById("prev-img").onclick = () => {stopSlideshow(); changeImage(images, -1)};
   document.getElementById("next-img").onclick = () => {stopSlideshow(); changeImage(images, 1)};
+}
+
+function renderThumbnails(images) {
+  if (!thumbnailStrip) return;
+
+  thumbnailStrip.innerHTML = '';
+
+  if (!images || images.length === 0) return;
+
+  images.forEach((img, index) => {
+    const thumb = document.createElement('img');
+    thumb.src = img;
+    thumb.dataset.index = index;
+
+    if (index === currentIndex) {
+      thumb.classList.add('active');
+    }
+
+    thumbnailStrip.appendChild(thumb);
+  });
 }
 
 function startSlideshow(images) {
@@ -193,6 +216,12 @@ function updateImage(images) {
   currentIndex = Math.max(0, Math.min(currentIndex, images.length - 1));
   imgEl.src = images[currentIndex] || 'assets/img/placeholder.png';
   counterEl.textContent = `${currentIndex + 1} / ${images.length}`;
+  
+  const thumbs = thumbnailStrip?.querySelectorAll('img');
+  if (thumbs && thumbs.length) {
+    thumbs.forEach(t => t.classList.remove('active'));
+    thumbs[currentIndex].classList.add('active')
+  }
 }
 
 function changeImage(images, step) {
@@ -224,7 +253,7 @@ async function loadModal(){
   try {
     const modalHTML = await fetch('partials/property-details-card.html').then(res => res.text());
     const placeholder = document.getElementById('property-details');
-    if (placeholder) placeholder.innerHTML = modalHTML;
+    if (placeholder) placeholder.innerHTML = modalHTML;    
   } catch (err) {
     console.error("loadModal failed:", err);
   }
@@ -263,6 +292,18 @@ async function initializeModal(){
   });
 }
 
+async function initializeThumbnailsStrip(){
+  thumbnailStrip?.addEventListener('click', function (e) {
+      if (e.target.tagName === 'IMG') {
+        stopSlideshow();
+        currentIndex = parseInt(e.target.dataset.index);
+        updateImage(
+          Array.from(thumbnailStrip.querySelectorAll('img')).map(i => i.src)
+        );
+      }
+    });
+}
+
 /// Initialize filters and render properties
 
 function waitForPropertyData(interval = 700) {
@@ -289,6 +330,7 @@ async function runResidential(){
 async function run(){
   await runResidential();
   await initializeModal();
+  initializeThumbnailsStrip()
   const params = new URLSearchParams(window.location.search || '');
   const selectedId = params.get('id');
   if (selectedId) {

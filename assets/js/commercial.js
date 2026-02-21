@@ -128,6 +128,8 @@ function initElements(){
    locationEl = document.getElementById("property-location");
    descEl = document.getElementById("property-description");
    detailsEl = document.getElementById("property-details-modal");
+   thumbnailStrip = document.getElementById("thumbnail-strip");
+
 }
 
 
@@ -141,6 +143,7 @@ function openPropertyModal(property) {
 
   const images = Array.isArray(property.IMAGENAMES) ? property.IMAGENAMES : [];
   currentIndex = 0;
+  renderThumbnails(images);
   updateImage(images);
 
   modal.style.display = "block";
@@ -149,6 +152,26 @@ function openPropertyModal(property) {
   startSlideshow(images);
   document.getElementById("prev-img").onclick = () => {stopSlideshow(); changeImage(images, -1)};
   document.getElementById("next-img").onclick = () => {stopSlideshow(); changeImage(images, 1)};
+}
+
+function renderThumbnails(images) {
+  if (!thumbnailStrip) return;
+
+  thumbnailStrip.innerHTML = '';
+
+  if (!images || images.length === 0) return;
+
+  images.forEach((img, index) => {
+    const thumb = document.createElement('img');
+    thumb.src = img;
+    thumb.dataset.index = index;
+
+    if (index === currentIndex) {
+      thumb.classList.add('active');
+    }
+
+    thumbnailStrip.appendChild(thumb);
+  });
 }
 
 
@@ -181,6 +204,12 @@ function updateImage(images) {
   currentIndex = Math.max(0, Math.min(currentIndex, images.length - 1));
   imgEl.src = images[currentIndex] || 'assets/img/placeholder.png';
   counterEl.textContent = `${currentIndex + 1} / ${images.length}`;
+
+  const thumbs = thumbnailStrip?.querySelectorAll('img');
+  if (thumbs && thumbs.length) {
+    thumbs.forEach(t => t.classList.remove('active'));
+    thumbs[currentIndex].classList.add('active')
+  }
 }
 
 function changeImage(images, step) {
@@ -227,6 +256,18 @@ function cardClickHandler(e) {
   }
 }
 
+
+async function initializeThumbnailsStrip(){
+  thumbnailStrip?.addEventListener('click', function (e) {
+      if (e.target.tagName === 'IMG') {
+        stopSlideshow();
+        currentIndex = parseInt(e.target.dataset.index);
+        updateImage(
+          Array.from(thumbnailStrip.querySelectorAll('img')).map(i => i.src)
+        );
+      }
+    });
+}
 
 
 /* PROPERTY DETAILS MODAL END */
@@ -278,6 +319,7 @@ async function initializeModal(){
 async function run(){
   await runCommercial();
   await initializeModal();
+  initializeThumbnailsStrip();
   const params = new URLSearchParams(window.location.search || '');
   const selectedId = params.get('id');
   if (selectedId) {
