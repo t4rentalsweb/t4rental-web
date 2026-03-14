@@ -13,8 +13,8 @@
   background: #fff;
   margin: 5% auto;
   /* padding: 1.5rem; */
-  padding: 0.6rem;
-  border-radius: 12px;
+  padding: 6px;
+  border-radius: 8px;
   max-width: 800px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
@@ -42,9 +42,14 @@
   margin-bottom: 1rem;
 }
 
+#modal-details-spacer{
+  min-width: 100%;
+  border: 1px solid black;
+}
+
 .property-gallery img {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .property-gallery button {

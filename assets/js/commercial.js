@@ -197,13 +197,13 @@ function updateImage(images) {
   if (!imgEl || !counterEl) return;
   if (!images || images.length === 0) {
     imgEl.src = 'assets/img/placeholder.png';
-    counterEl.textContent = `0 / 0`;
+    // counterEl.textContent = `0 / 0`;
     return;
   }
   // clamp currentIndex
   currentIndex = Math.max(0, Math.min(currentIndex, images.length - 1));
   imgEl.src = images[currentIndex] || 'assets/img/placeholder.png';
-  counterEl.textContent = `${currentIndex + 1} / ${images.length}`;
+  // counterEl.textContent = `${currentIndex + 1} / ${images.length}`;
 
   const thumbs = thumbnailStrip?.querySelectorAll('img');
   if (thumbs && thumbs.length) {
