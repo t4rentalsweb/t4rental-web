@@ -6,17 +6,17 @@ This README explains where data comes from, how it's loaded and cached, and how 
 
 ### Deployment
 
-This site is deployed to GitHub Pages using GitHub Actions. The deployment workflow:
+This site is deployed to GitHub Pages using GitHub Actions. The deployment workflow stored in /.github/workflows:
 
-1. **Base URL substitution**: The `__BASE_URL__` placeholder in `index.html` and all files in `/pages/` is replaced with the appropriate base URL (`/` for production, `/T4Rents/` for repository deployments, etc.) during the build process.
+1. **Base URL substitution**: The `__BASE_URL__` placeholder in `index.html` and all files in `/pages/` is replaced with the appropriate base URL (base url:  `/t4rental-web/`, stored in settings >> secrets & variables >> variables) during the build process. 
 
-2. **Configuration secrets**: Environment variables stored in GitHub repository secrets are used to replace template variables in `assets/config.json`:
+2. **Configuration secrets**: Environment secrets and variables stored in GitHub repository secrets are used to replace template variables in `assets/config.json`:
    - `WEB3API_K` → `{WEB3API_K}`
    - `PROPERTIESSHEETURL` → `{PROPERTIESSHEETURL}`
    - `CUSTOMERREVIEWSURL` → `{CUSTOMERREVIEWSURL}`
    - `BUSINESSESSHEETURL` → `{BUSINESSESSHEETURL}`
 
-3. **Build and deploy**: The GitHub Actions workflow runs on push to `main`, substitutes all placeholders, and deploys the static site to GitHub Pages.
+3. **Build and deploy**: The GitHub Actions workflow runs on commits to `main`, substitutes all placeholders, and deploys the static site to GitHub Pages.
 
 ### Quick overview
 
@@ -33,7 +33,7 @@ This site is deployed to GitHub Pages using GitHub Actions. The deployment workf
   - `customerReviewsUrl` — CSV URL for customer reviews (replaced from `CUSTOMERREVIEWSURL` secret)
   - `businessesSheetUrl` — CSV URL for businesses (replaced from `BUSINESSESSHEETURL` secret)
   - `image_bucket` — GCS bucket name used to build image URLs
-  - `web3FormsKey` — third-party key used for contact forms (replaced from `WEB3API_K` secret)
+  - `web3FormsKey` — third-party key used for contact forms (replaced from `WEB3API_K` secret) manages emails sent.
 
 - `assets/js/main.js` — loads `assets/config.json`, fetches and parses the properties CSV, converts image filename lists to full GCS URLs, and stores data in `sessionStorage` and `window` globals.
 
@@ -59,7 +59,7 @@ Notes on caching: data is cached to `sessionStorage` and a `SESSION_TIME` timest
 
 ### Data shape and CSV expectations
 
-Properties CSV (expected columns used by the code):
+Properties CSV (expected columns used by the code, may be adjusted since posting this):
 
 - `ID` — unique identifier
 - `TITLE` — property title shown on cards
