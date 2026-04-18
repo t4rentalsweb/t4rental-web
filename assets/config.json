@@ -4,7 +4,7 @@
   "propertiesSheetUrl": "{PROPERTIESSHEETURL}",
   "customerReviewsUrl": "{CUSTOMERREVIEWSURL}",
   "businessesSheetUrl": "{BUSINESSESSHEETURL}",
-  "image_bucket": "tee4rentz",
+  "image_bucket": "t4rentals-web-images",
   "home":{
      "tagline": "Providing High-Quality Residential & Commercial Rentals in Franklin, PA for 30 Years!"
   }
