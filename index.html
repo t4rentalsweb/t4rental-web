@@ -1,113 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="T4Rentals | Providing High-Quality Residential & Commercial Rentals in Franklin, PA for
-    30 Years!">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://t4rentals.com/">
-  <meta property="og:title" content="T4 Rentals - Franklin, PA Rentals">
-  <meta property="og:description" content="T4Rentals | Providing High-Quality Residential & Commercial Rentals in Franklin, PA for
-    30 Years!">
-  <meta property="og:image" content="https://t4rentals.com/assets/img/logo-main-color.svg">
-  <meta property="og:image:alt" content="T4 Rentals">
-  <meta property="og:image:width" content="980">
-  <meta property="og:image:height" content="1295">
-  <title>T4 Rentals</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=1.0.5">
-  <link rel="stylesheet" href="assets/css/card-styles.css?v=1.0.5">
-  <link rel="stylesheet" href="assets/css/customer-reviews.css?v=1.0.5">
-  <link rel="stylesheet" href="assets/css/business-card.css?v=1.0.5">
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@100;300..900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4R Rentals</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f7f4ef;
+    color:#303030;
+    font-family:Inter,sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-image:
+        linear-gradient(rgba(255,255,255,.58),rgba(255,255,255,.58)),
+        url("assets/img/brick-white.jpg"); /* optional */
+    background-size:cover;
+}
+
+.container{
+    width:min(700px,90%);
+    text-align:center;
+    padding:60px 40px;
+    border-top:5px solid #8a6547;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(2px);
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.logo{
+    width:90px;
+    margin-bottom:30px;
+}
+
+.small{
+    text-transform:uppercase;
+    letter-spacing:4px;
+    color:#556b5d;
+    font-size:.9rem;
+}
+
+h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:4rem;
+    margin:10px 0 20px;
+    color:#222;
+}
+
+.divider{
+    width:80px;
+    height:2px;
+    background:#8a6547;
+    margin:25px auto;
+}
+
+p{
+    font-size:1.15rem;
+    line-height:1.8;
+    color:#555;
+}
+
+.notice{
+    margin-top:40px;
+    display:inline-block;
+    padding:14px 28px;
+    border:1px solid #8a6547;
+    color:#556b5d;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:.85rem;
+}
+
+.footer{
+    margin-top:50px;
+    color:#888;
+    font-size:.9rem;
+}
+
+</style>
+
 </head>
-<body data-page="home">
-  <header id="site-header"></header>
+<body>
 
-  <main>
-    <!-- <a class="style-test" href="/index.html">style 1</a>
-    <a class="style-test" href="/pages/home2.html">style 2</a>
-    <a class="style-test" href="/pages/home3.html">style 3</a> -->
-    <section class="hero">
-      <img src="assets/img/town.svg" alt="Decorative background" class="hero-img" id="t4rent-town"/>
-      <div class="hero-text">
-          <!-- <h1>Welcome to T4 Rentals</h1> -->
-          <p id="home-tagline">Providing High-Quality Residential & Commercial Rentals in Franklin, PA for
-    30 Years!</p>
-      </div>
-    </section>
-      <div class="cta-group">
-      <a href="pages/resedential.html" class="cta-btn">View Residential</a>
-      <a href="pages/commercial.html" class="cta-btn secondary">View Commercial</a>
+<div class="container">
+
+    <img class="logo" src="assets/img/logo-main-color.svg">
+
+    <div class="small">
+        WEBSITE UPDATE
     </div>
 
-    <br><br><br>
-     <div class="divider-container">
-     _________
-    <img src="assets/img/logo-main.svg" alt="T4R" id="main-logo" class="logo-divider" width="90" />
-     _________
+    <h1>Coming Soon</h1>
+
+    <div class="divider"></div>
+
+    <p>
+        We're preparing a brand new online experience for
+        <strong>T4Rentals</strong>.
+        Our updated website will be available soon with current
+        listings, property information, and community resources.
+    </p>
+
+    <div class="notice">
+        Thank you for your patience
     </div>
-    <br><br><br>
 
-    <!-- replaced with CTA buttons, remove later -->
-     <!-- <div class="property-button-container">
-      <button><a href="/pages/resedential.html">Residential</a></button>
-      <button><a href="/pages/commercial.html">Commercial</a></button>
-    </div> -->
-
-    <!-- Featured propery cards section -->
-    <section id="resedential-list" class="resedential featured-properties">
-      <!-- Dynamic property cards will be injected here -->
-    </section>
-   
-    
-    <br><br><br>
-    <div class="divider-container">
-     _________
-    <img src="assets/img/logo-main.svg" alt="T4R" id="main-logo" class="logo-divider" width="90" />
-     _________
+    <div class="footer">
+        Franklin, Pennsylvania
     </div>
-    <br><br><br>
-    
-    
-    <!-- customer review cards section -->
-    <h1 id="customer-review-header">Hear what others have to say!</h1>
-    <section class="customer-reviews">
-      <!-- add customer reviews dynamcially -->
-    </section>
-    
-    <br><br><br>
-     <div class="divider-container">
-     _________
-    <img src="assets/img/logo-main.svg" alt="T4R" id="main-logo" class="logo-divider" width="90" />
-     _________
-    </div>
-    <br><br><br>
 
-    <!-- local business cards section -->
-    <h1 id="local-business-header">Meet the Franklin community!</h1>
-     <section id="business-list">
-      <!-- Dynamic property cards will be injected here -->
-       <h3 style="text-align: center;">... featured business news or businesses..</h3>
-    </section>
-    
-  </main>
+</div>
 
-  <!-- <br><br><br> -->
-
-  <footer id="site-footer"></footer>
-  <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
-  <script src="assets/js/main.js?v=1.0.5"></script>
-  <script src="assets/js/customer-reviews.js?v=1.0.5"></script>
-  <script src="assets/js/featured-properties.js?v=1.0.5"></script>
-  <script src="assets/js/community.js?v=1.0.5"></script>
-  <script>
-    const img = document.getElementById('t4rent-town');
-    if (img) {
-      img.classList.add('visible');
-    }
-  </script>
 </body>
 </html>

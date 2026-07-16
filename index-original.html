@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="T4Rentals | Providing High-Quality Residential & Commercial Rentals in Franklin, PA for
+    30 Years!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://t4rentals.com/">
+  <meta property="og:title" content="T4 Rentals - Franklin, PA Rentals">
+  <meta property="og:description" content="T4Rentals | Providing High-Quality Residential & Commercial Rentals in Franklin, PA for
+    30 Years!">
+  <meta property="og:image" content="https://t4rentals.com/assets/img/logo-main-color.svg">
+  <meta property="og:image:alt" content="T4 Rentals">
+  <meta property="og:image:width" content="980">
+  <meta property="og:image:height" content="1295">
+  <title>T4 Rentals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.0.5">
+  <link rel="stylesheet" href="assets/css/card-styles.css?v=1.0.5">
+  <link rel="stylesheet" href="assets/css/customer-reviews.css?v=1.0.5">
+  <link rel="stylesheet" href="assets/css/business-card.css?v=1.0.5">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@100;300..900&display=swap" rel="stylesheet">
+</head>
+<body data-page="home">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- <a class="style-test" href="/index.html">style 1</a>
+    <a class="style-test" href="/pages/home2.html">style 2</a>
+    <a class="style-test" href="/pages/home3.html">style 3</a> -->
+    <section class="hero">
+      <img src="assets/img/town.svg" alt="Decorative background" class="hero-img" id="t4rent-town"/>
+      <div class="hero-text">
+          <!-- <h1>Welcome to T4 Rentals</h1> -->
+          <p id="home-tagline">Providing High-Quality Residential & Commercial Rentals in Franklin, PA for
+    30 Years!</p>
+      </div>
+    </section>
+      <div class="cta-group">
+      <a href="pages/resedential.html" class="cta-btn">View Residential</a>
+      <a href="pages/commercial.html" class="cta-btn secondary">View Commercial</a>
+    </div>
+
+    <br><br><br>
+     <div class="divider-container">
+     _________
+    <img src="assets/img/logo-main.svg" alt="T4R" id="main-logo" class="logo-divider" width="90" />
+     _________
+    </div>
+    <br><br><br>
+
+    <!-- replaced with CTA buttons, remove later -->
+     <!-- <div class="property-button-container">
+      <button><a href="/pages/resedential.html">Residential</a></button>
+      <button><a href="/pages/commercial.html">Commercial</a></button>
+    </div> -->
+
+    <!-- Featured propery cards section -->
+    <section id="resedential-list" class="resedential featured-properties">
+      <!-- Dynamic property cards will be injected here -->
+    </section>
+   
+    
+    <br><br><br>
+    <div class="divider-container">
+     _________
+    <img src="assets/img/logo-main.svg" alt="T4R" id="main-logo" class="logo-divider" width="90" />
+     _________
+    </div>
+    <br><br><br>
+    
+    
+    <!-- customer review cards section -->
+    <h1 id="customer-review-header">Hear what others have to say!</h1>
+    <section class="customer-reviews">
+      <!-- add customer reviews dynamcially -->
+    </section>
+    
+    <br><br><br>
+     <div class="divider-container">
+     _________
+    <img src="assets/img/logo-main.svg" alt="T4R" id="main-logo" class="logo-divider" width="90" />
+     _________
+    </div>
+    <br><br><br>
+
+    <!-- local business cards section -->
+    <h1 id="local-business-header">Meet the Franklin community!</h1>
+     <section id="business-list">
+      <!-- Dynamic property cards will be injected here -->
+       <h3 style="text-align: center;">... featured business news or businesses..</h3>
+    </section>
+    
+  </main>
+
+  <!-- <br><br><br> -->
+
+  <footer id="site-footer"></footer>
+  <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+  <script src="assets/js/main.js?v=1.0.5"></script>
+  <script src="assets/js/customer-reviews.js?v=1.0.5"></script>
+  <script src="assets/js/featured-properties.js?v=1.0.5"></script>
+  <script src="assets/js/community.js?v=1.0.5"></script>
+  <script>
+    const img = document.getElementById('t4rent-town');
+    if (img) {
+      img.classList.add('visible');
+    }
+  </script>
+</body>
+</html>
