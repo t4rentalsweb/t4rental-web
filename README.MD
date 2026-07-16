@@ -1,5 +1,5 @@
 ## T4 Rentals — High level developer README
-
+ 
 This repo is a small static site that dynamically loads data from published Google Sheets and a GCS image bucket. The client-side JavaScript fetches CSV exports, parses them, and renders lists of cards for properties, customer reviews, and local businesses.
 
 This README explains where data comes from, how it's loaded and cached, and how pages consume that data so a new dev can make changes quickly.
